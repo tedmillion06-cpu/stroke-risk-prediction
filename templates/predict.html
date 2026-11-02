@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Prediction | Stroke Risk Prediction</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+<header class="site-header">
+    <div class="container nav">
+        <a class="brand" href="{{ url_for('home') }}">
+            Stroke Risk Prediction
+        </a>
+
+        <nav>
+            <a href="{{ url_for('about') }}">About</a>
+            <a class="active" href="{{ url_for('predict') }}">
+                Prediction
+            </a>
+        </nav>
+    </div>
+</header>
+
+<main class="container narrow">
+    <section class="page-heading">
+        <p class="eyebrow">Prediction Interface</p>
+
+        <h1>Enter Patient Information</h1>
+
+        <p>
+            Enter the example information below to compare the
+            Random Forest and XGBoost model outputs.
+        </p>
+    </section>
+
+    {% if error %}
+    <div class="error" role="alert">
+        {{ error }}
+    </div>
+    {% endif %}
+
+    <form class="card form-card"
+          action="{{ url_for('predict') }}"
+          method="POST">
+
+        <div class="form-grid">
+
+            <div class="field">
+                <label for="gender">Gender</label>
+                <select id="gender" name="gender" required>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label for="age">Age</label>
+                <input id="age" name="age"
+                       type="number" min="0" max="120"
+                       step="0.1" value="65" required>
+            </div>
+
+            <div class="field">
+                <label for="hypertension">Hypertension</label>
+                <select id="hypertension" name="hypertension" required>
+                    <option value="0">No (0)</option>
+                    <option value="1">Yes (1)</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label for="heart_disease">Heart Disease</label>
+                <select id="heart_disease" name="heart_disease" required>
+                    <option value="0">No (0)</option>
+                    <option value="1">Yes (1)</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label for="ever_married">Ever Married</label>
+                <select id="ever_married" name="ever_married" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label for="work_type">Work Type</label>
+                <select id="work_type" name="work_type" required>
+                    <option value="Private">Private</option>
+                    <option value="Self-employed">Self-employed</option>
+                    <option value="Govt_job">Government job</option>
+                    <option value="children">Children</option>
+                    <option value="Never_worked">Never worked</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label for="Residence_type">Residence Type</label>
+                <select id="Residence_type" name="Residence_type" required>
+                    <option value="Urban">Urban</option>
+                    <option value="Rural">Rural</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label for="avg_glucose_level">
+                    Average Glucose Level
+                </label>
+                <input id="avg_glucose_level"
+                       name="avg_glucose_level"
+                       type="number" min="0.1"
+                       step="0.1" value="180.5" required>
+            </div>
+
+            <div class="field">
+                <label for="bmi">BMI</label>
+                <input id="bmi" name="bmi"
+                       type="number" min="0.1"
+                       step="0.1" value="32.5" required>
+            </div>
+
+            <div class="field">
+                <label for="smoking_status">Smoking Status</label>
+                <select id="smoking_status" name="smoking_status" required>
+                    <option value="formerly smoked">Formerly smoked</option>
+                    <option value="never smoked">Never smoked</option>
+                    <option value="smokes">Smokes</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+            </div>
+
+        </div>
+
+        <p class="form-help">
+            Default values are provided for testing the interface.
+            They are not a recommendation or a real patient's data.
+        </p>
+
+        <button class="button" type="submit">
+            Compare Predictions
+        </button>
+
+    </form>
+
+    <aside class="notice">
+        This educational application does not provide a medical
+        diagnosis or a validated individual stroke-risk assessment.
+    </aside>
+</main>
+
+<footer class="site-footer">
+    <div class="container">
+        Stroke Risk Prediction | Academic Project
+    </div>
+</footer>
+
+</body>
+</html>

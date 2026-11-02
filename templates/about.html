@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>About | Stroke Risk Prediction</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+<header class="site-header">
+    <div class="container nav">
+        <a class="brand" href="{{ url_for('home') }}">
+            Stroke Risk Prediction
+        </a>
+
+        <nav>
+            <a class="active" href="{{ url_for('about') }}">About</a>
+            <a href="{{ url_for('predict') }}">Prediction</a>
+        </nav>
+    </div>
+</header>
+
+<main class="container">
+    <section class="hero">
+        <p class="eyebrow">Machine Learning Project</p>
+
+        <h1>Early Stroke Risk Prediction</h1>
+
+        <p class="lead">
+            A comparative study of Random Forest and XGBoost
+            using clinical and demographic features.
+        </p>
+
+        <a class="button" href="{{ url_for('predict') }}">
+            Start Prediction
+        </a>
+    </section>
+
+
+    <section class="resume-section"> 
+        <h2>My Resume</h2>
+        <p>
+             Learn more about my academic background, technical skills, and 
+             professional interests. 
+        </p> 
+
+        <a href="{{ url_for('static', filename='files/resume.pdf') }}" target="_blank" class="resume-button"> 
+            View Resume 
+        </a> 
+
+        <a href="{{ url_for('static', filename='files/resume.pdf') }}" download="resume.pdf" class="resume-button">
+             Download Resume (PDF) 
+        </a> 
+    </section>
+
+
+    <section class="card">
+
+        <h2>About Me</h2>
+
+        <p>
+           I am a dedicated data science student passionate about machine learning
+           and healthcare analytics, with a focus on developing predictive models 
+           using Random Forest and XGBoost to support early stroke risk prediction.
+
+        <p>Million Tedla</p>
+
+           https://www.linkedin.com/in/mil-api-tedla/
+
+        </p>
+
+        <h2>Projects</h2>
+
+        <p> Eastern University Data Science DTSC690 Ethics Project</p>
+
+           Algorithmic Fairness versus Predictive Accuracy in Machine Learning-Based
+           Stroke Prediction An Ethical and Philosophical Evaluation of Random Forest
+           and XGBoost Models
+
+        </p>GitHub Repository</p>
+            
+        </p>
+
+
+        <h2>Project Overview</h2>
+
+        <p>
+            This project explores machine-learning approaches for
+            predicting the stroke class from clinical and demographic
+            information. Random Forest and XGBoost are compared using
+            a consistent preprocessing strategy, test dataset, and
+            evaluation framework.
+        </p>
+    </section>     
+
+    <section class="two-columns">
+        <article class="card">
+            <h2>Random Forest</h2>
+
+            <p>
+                Random Forest combines multiple decision trees to
+                generate predictions. Its performance can be evaluated
+                using precision, recall, F1-score, ROC-AUC, and a
+                confusion matrix.
+            </p>
+        </article>
+
+        <article class="card">
+            <h2>XGBoost</h2>
+
+            <p>
+                XGBoost builds boosted decision trees sequentially.
+                Its performance is compared with Random Forest using
+                the same evaluation data and metrics.
+            </p>
+        </article>
+    </section>
+
+    <section class="card">
+        <h2>Project Features</h2>
+
+        <ul>
+            <li>Clinical and demographic input features</li>
+            <li>Random Forest and XGBoost predictions</li>
+            <li>Predicted stroke probability percentages</li>
+            <li>Model comparison and evaluation</li>
+        </ul>
+    </section>
+
+    <aside class="notice">
+        <strong>Medical disclaimer:</strong>
+        This application is an academic demonstration, not a
+        clinically validated diagnostic tool. Predictions must
+        not be used to make medical decisions.
+    </aside>
+</main>
+
+<footer class="site-footer">
+    <div class="container">
+        Stroke Risk Prediction | Academic Project
+    </div>
+</footer>
+
+</body>
+</html>
