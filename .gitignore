@@ -12,6 +12,47 @@ __pycache__/
 # C extensions
 *.so
 
+# Private datasets
+*.csv
+*.xlsx
+*.xls
+
+# Saved machine learning models
+*.pkl
+*.pickle
+*.joblib
+
+# Credentials and environment variables
+.env
+.env.*
+!.env.example
+secrets/
+credentials/
+*.pem
+*.key
+
+# Python cache files
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# Virtual environments
+.venv/
+venv/
+env/
+.conda/
+
+# Logs and temporary files
+*.log
+*.tmp
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Sensitive notebook checkpoints and exports
+.ipynb_checkpoints/
+
 # Distribution / packaging
 .Python
 build/
